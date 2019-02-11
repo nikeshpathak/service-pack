@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: zuul-server
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+      preferIpAddress: true
+
+zuul:
+  prefix: /api
+  routes:
+    demo:
+      path: /demo/**
+      serviceId: demo-client1
+
